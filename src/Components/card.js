@@ -12,7 +12,7 @@ function Card(props){
               id="card1"
               src={props.source}
             />
-      </div>
+        </div>
        )
 }
 

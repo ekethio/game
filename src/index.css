@@ -82,11 +82,15 @@ img{
 
 
 }
+#wager{
+ font-size: 16px;
+}
 .player{
  /* background-image: url('https://store.playstation.com/store/api/chihiro/00_09_000/container/NZ/en/999/EP4067-NPEB01320_00-AVPOPULUSM001761/1550727215000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000'); */
   display: inline-block;
   justify-content: center;
-
+  
+  
   text-align: center;
  
   background-size: contain;

@@ -55,7 +55,6 @@ function App() {
       }
     });
     socket.on('actionRequested', ({players, board, maxWager, currentPlayer})=> {
-        console.log('hi');
         setMaxWager(maxWager);
         setPlayers(players);
         setBoard(board);
@@ -66,11 +65,9 @@ function App() {
         if (player) {
             setHasCards(player.holeCards.length === 2);
                 setIsActing(player.username === currentPlayer);
-                console.log({currentPlayer, name: player.username});
-    } 
+                
+        } 
         
-    
-    
     });
   });
   
@@ -87,6 +84,7 @@ function App() {
   
   
   }
+  const player = Object.values(players).filter(player => player !== null).find( p  => p.username ===name);
   return (
     <div className="container">
     <div className="table">
@@ -112,7 +110,7 @@ function App() {
     </div>
      
       
-      <Actions act = {act}  isThereBet ={ maxWager > 0} isActing = {isActing} maxWager = {maxWager}/>
+      <Actions act = {act} player = {player}  isThereBet ={ maxWager > 0} isActing = {isActing} maxWager = {maxWager}/>
     </div>
   );
 }

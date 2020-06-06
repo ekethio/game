@@ -10,33 +10,31 @@ function Player(props) {
     props.add(props.id, name, stack);
   }
 
-  return !props.hasJoined ? (
-    props.occupied ? (
+    
+  return props.occupied ? (
+  
       <div className="player" id={"player" + props.id}>
-        <div className="playerInfo" id={"player" + props.id + "Info"}>
-          <div id={"username" + props.id}> {props.player.username}</div>
-          <div id={"stack" + props.id}>${props.player.currentStack} </div>
-           <p> {props.player.currentWager}</p>
-        </div>
-        <Cards player={props.player} name ={props.name}/>
-       
-      </div>
-    ) : (
+          <div className="playerInfo" id={"player" + props.id + "Info"}>
+            <div id={"username" + props.id}> {props.player.username}</div>
+            <div id={"stack" + props.id}> ${props.player.currentStack} </div>
+          </div>
+          <Cards player={props.player} name = {props.name} />
+          <div id ='wager'>
+             {props.player.currentWager}
+          </div>  
+          
+     </div>
+ 
+    ):
+     !props.hasJoined? (
       <Empty id={props.id} seatPlayer={seatPlayer} />
-    )
-  ) : props.occupied ? (
-    <div className="player" id={"player" + props.id}>
-      <div className="playerInfo" id={"player" + props.id + "Info"}>
-        <div id={"username" + props.id}> {props.player.username}</div>
-        <div id={"stack" + props.id}> ${props.player.currentStack} </div>
-      </div>
-      <Cards player={props.player} name = {props.name} />
-    </div>
-  ) : (
+     ):
+    
+    (
     <div className="player" id={"player" + props.id}>
       <button type="button">Empty Seat</button>
     </div>
-  );
+    )
 }
 
 export default Player;
